@@ -1,0 +1,4 @@
+<form (submit)="onSubmit()" [formGroup]="formGroup">
+    <ng-content></ng-content>
+    <pre>{{getErrors() | json}}</pre>
+</form>
