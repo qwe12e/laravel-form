@@ -1,6 +1,7 @@
 import {Directive, ElementRef, Host, OnInit, Optional, Renderer2} from '@angular/core';
 import {MatFormField} from '@angular/material';
 import {FormControl, NgControl} from '@angular/forms';
+import {printErrors} from './laravel-form/laravel-form.helpers';
 
 @Directive({
     selector: '[appError]'
@@ -34,27 +35,7 @@ export class ErrorDirective implements OnInit {
         if (!errors) {
             return '';
         }
-        const result = [];
-        for (const [error, message] of Object.entries(errors)) {
-            if (error.startsWith('laravel')) {
-                result.push(message);
-            } else {
-                switch (error) {
-                    case 'required' :
-                        result.push('Doldur');
-                        break;
-                    case 'email' :
-                        result.push('Yanlış Email');
-                        break;
-                    case 'asd' :
-                        result.push('asd');
-                        break;
-                    default:
-                        result.push('Bilinmeyen Hata');
-                }
-            }
-        }
-        return result.join('<br>');
+        return printErrors(errors);
     }
 
 }

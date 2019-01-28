@@ -45,22 +45,19 @@ export class LaravelFormComponent implements OnInit {
                     for (const controlName of Object.keys(resp.errors)) {
                         const laravelErrors = {};
                         resp.errors[controlName].forEach((error, index) => {
-                            console.log(error);
                             laravelErrors['laravel' + index] = error;
                         });
-                        console.log(controlName);
                         this.formGroup.get(controlName).setErrors(laravelErrors);
                     }
                 }
             });
-        console.log(this.formGroup);
     }
 
     mockApi(asd) {
         return of({
             message: 'asda',
             errors: {
-                ad: ['hata1'],
+                tc: ['hata1'],
                 email: ['hata2', 'hata3'],
             }
         });

@@ -9,3 +9,31 @@
     </mat-form-field>
     <button mat-raised-button laravelSubmit>Submit</button>
 </app-laravel-form>
+
+<app-laravel-form [formGroup]="kayitFormGroup">
+    <mat-form-field>
+        <input matInput type="text" placeholder="T.C. Kimlik No *" formControlName="tc">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Ad Soyad *" formControlName="name">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Şifre *" formControlName="password">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Şifre(tekrar) *" formControlName="password_confirmation">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="email" placeholder="E-Posta Adresi *" formControlName="email">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="tel" placeholder="Telefon *" formControlName="tel">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <button mat-raised-button laravelSubmit>Kayıt Ol</button>
+</app-laravel-form>
