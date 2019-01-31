@@ -2,6 +2,7 @@ import {AfterViewInit, Directive, ElementRef, Host, OnInit, Optional, Renderer2}
 import {LaravelFormComponent} from './laravel-form/laravel-form.component';
 
 @Directive({
+    // tslint:disable-next-line:directive-selector
     selector: '[laravelSubmit]'
 })
 export class LaravelSubmitDirective implements AfterViewInit {
