@@ -7,7 +7,6 @@ const errorCases = {
 };
 
 export function printErrors(errors): string {
-    console.log('aaa', errors);
     const result = [];
     for (const [error, message] of Object.entries(errors)) {
         if (error.startsWith('laravel')) {

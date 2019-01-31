@@ -12,13 +12,17 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LaravelSubmitDirective } from './laravel-submit.directive';
 import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
+import { Base64FileDirective } from './base64-file.directive';
+import { ValueModifierDirective } from './value-modifier.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         LaravelFormComponent,
         ErrorDirective,
-        LaravelSubmitDirective
+        LaravelSubmitDirective,
+        Base64FileDirective,
+        ValueModifierDirective
     ],
     imports: [
         BrowserModule,

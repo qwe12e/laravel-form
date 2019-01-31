@@ -1,3 +1,11 @@
+<input type="text" [valueModifier]="[f1,f2]" placeholder="qweqwe" [formControl]="deneme">
+<input type="text" [valueModifier]="[f1,f2]" placeholder="qweqwe" [formControl]="deneme2">
+
+<button (click)="log()">log</button>
+{{deneme.value}}
+<!--<input type="file" placeholder="file" base64File [(ngModel)]="file">-->
+<!--<pre>{{file | json}}</pre>-->
+
 <app-laravel-form [formGroup]="formGroup">
     <mat-form-field>
         <input matInput placeholder="Ad" formControlName="ad">
@@ -32,13 +40,15 @@
         <mat-error appError></mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input [textMask]="{mask: mask, guide: true}" matInput type="text" placeholder="Telefon *" formControlName="tel">
+        <input [textMask]="{mask: mask, guide: true}" matInput type="text" placeholder="Telefon *"
+               formControlName="tel">
         <mat-error appError></mat-error>
     </mat-form-field>
     <button mat-raised-button laravelSubmit>Kayıt Ol</button>
 </app-laravel-form>
 
-<app-laravel-form [formGroup]="loginFormGroup" action="/login" method="POST" [value]="{tc: 121212121212, asd: 'qwe', password: 'wwwwwwwwwwwww'}">
+<app-laravel-form [formGroup]="loginFormGroup" action="/login" method="POST"
+                  [value]="{tc: 121212121212, asd: 'qwe', password: 'wwwwwwwwwwwww'}">
     <mat-form-field>
         <input matInput type="number" placeholder="T.C. Kimlik No *" formControlName="tc">
         <mat-error appError></mat-error>
@@ -49,3 +59,4 @@
     </mat-form-field>
     <button mat-raised-button laravelSubmit>Kayıt Ol</button>
 </app-laravel-form>
+

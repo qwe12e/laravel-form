@@ -48,8 +48,6 @@ export class LaravelSubmitDirective implements AfterViewInit {
 //     border-bottom-right-radius: 50px;
 //     /* display: none; */`
     setDisabled() {
-        console.log('status: ', this.status);
-        console.log('progress: ', this.progress);
         this.renderer.setProperty(this.elementRef.nativeElement, 'disabled', !this.status || this.progress);
     }
 

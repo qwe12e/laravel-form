@@ -10,8 +10,17 @@ import {CustomValidators} from './laravel-form/laravel-form.validators';
 })
 export class AppComponent {
     formGroup: FormGroup;
+
+
+    formGroup1: FormGroup;
+    formGroup2: FormGroup;
+
+    deneme = new FormControl(3.56565656);
+    deneme2 = new FormControl(3.56565656);
+
     mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
+    file;
     loginFormGroup = new FormGroup({
         tc: new FormControl(0, [Validators.required]),
         password: new FormControl()
@@ -42,11 +51,33 @@ export class AppComponent {
     );
 
     constructor(private formBuilder: FormBuilder, public laravelError: LaravelFormErrorService) {
+        this.formGroup1 = new FormGroup({
+            a: this.deneme
+        });
+        this.formGroup2 = new FormGroup({
+            b: this.deneme
+        });
         this.formGroup = this.formBuilder.group({
             ad: ['', Validators.required],
             email: ['', Validators.required]
         });
     }
 
+
+    f1(value, targetFormControl: FormControl) {
+        console.log('f1', value);
+        console.log('f1', targetFormControl);
+        return Math.round(value * 100) / 100;
+    }
+
+    f2(value, targetFormControl: FormControl) {
+        console.log('f2', value);
+        console.log('f2', targetFormControl);
+        return Math.round(value * 100) / 100;
+    }
+
     // https://demo.abs.akdeniz.edu.tr/api/v1/register/ogrenci
+    log() {
+        console.log(this.formGroup1);
+    }
 }
