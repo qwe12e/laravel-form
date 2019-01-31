@@ -10,6 +10,8 @@ import {ErrorDirective} from './error.directive';
 import {NgModule} from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LaravelSubmitDirective } from './laravel-submit.directive';
+import {TextMaskModule} from 'angular2-text-mask';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -23,9 +25,11 @@ import { LaravelSubmitDirective } from './laravel-submit.directive';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         MatInputModule,
         MatButtonModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        TextMaskModule
     ],
     providers: [],
     bootstrap: [AppComponent]

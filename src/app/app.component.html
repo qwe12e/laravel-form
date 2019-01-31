@@ -32,7 +32,19 @@
         <mat-error appError></mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="tel" placeholder="Telefon *" formControlName="tel">
+        <input [textMask]="{mask: mask, guide: true}" matInput type="text" placeholder="Telefon *" formControlName="tel">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <button mat-raised-button laravelSubmit>Kayıt Ol</button>
+</app-laravel-form>
+
+<app-laravel-form [formGroup]="loginFormGroup" action="/login" method="POST" [value]="{tc: 121212121212, asd: 'qwe', password: 'wwwwwwwwwwwww'}">
+    <mat-form-field>
+        <input matInput type="number" placeholder="T.C. Kimlik No *" formControlName="tc">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Şifre *" formControlName="password">
         <mat-error appError></mat-error>
     </mat-form-field>
     <button mat-raised-button laravelSubmit>Kayıt Ol</button>

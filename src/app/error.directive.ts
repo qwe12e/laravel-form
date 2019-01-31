@@ -16,10 +16,11 @@ export class ErrorDirective implements OnInit {
 
     ngOnInit(): void {
         if (this.parent) {
-            if (this.parent._control && this.parent._control.ngControl && this.parent._control.ngControl.errors) {
+            if (this.parent._control && this.parent._control.ngControl) {
                 this.formControl = this.parent._control.ngControl;
                 this.writeErrors();
                 this.formControl.statusChanges.subscribe(status => {
+                    console.log('status chnged', status, this.formControl.errors);
                     this.writeErrors();
                 });
             }
@@ -31,6 +32,7 @@ export class ErrorDirective implements OnInit {
     }
 
     printErrors(): string {
+        if (!this.formControl.errors) { return printErrors({}); }
         const errors = this.formControl.errors;
         if (!errors) {
             return '';

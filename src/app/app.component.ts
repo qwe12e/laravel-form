@@ -10,6 +10,12 @@ import {CustomValidators} from './laravel-form/laravel-form.validators';
 })
 export class AppComponent {
     formGroup: FormGroup;
+    mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+    loginFormGroup = new FormGroup({
+        tc: new FormControl(0, [Validators.required]),
+        password: new FormControl()
+    });
 
     kayitFormGroup = new FormGroup({
             tc: new FormControl('', [Validators.required,
@@ -27,8 +33,7 @@ export class AppComponent {
             email: new FormControl('', [Validators.required, Validators.email]),
             tel: new FormControl('', [Validators.required,
                 Validators.minLength(10),
-                Validators.maxLength(12),
-                CustomValidators.phone()
+                Validators.maxLength(14),
             ]),
         },
         [
