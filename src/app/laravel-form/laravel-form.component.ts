@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {BehaviorSubject, Observable, of} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {finalize, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -75,7 +75,7 @@ export class LaravelFormComponent implements OnInit {
             throw new Error('Invalid laravel form method');
         }
 
-        req.pipe(tap(() => this.progress$.next(false), () => this.progress$.next(false)))
+        req.pipe(finalize(() => this.progress$.next(false)))
             .subscribe(resp => {
                     this.actionSuccess.emit(resp);
                 }, (err: HttpErrorResponse) => {
