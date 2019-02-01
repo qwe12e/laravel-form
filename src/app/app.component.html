@@ -1,3 +1,24 @@
+<app-laravel-form [formGroup]="faturaFormGroup">
+    <mat-form-field>
+        <input matInput type="number" placeholder="KDV Yüzdesi" formControlName="kdv_yuzde">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="KDV Hariç" formControlName="kdv_haric">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="KDV Dahil" formControlName="kdv_dahil">
+        <mat-error appError></mat-error>
+    </mat-form-field>
+    <button mat-raised-button laravelSubmit>Fatura Kes</button>
+</app-laravel-form>
+
+<pre>{{faturaFormGroup.value | json}}</pre>
+
+<hr>
+
+
 <input type="text" [valueModifier]="[f1,f2]" placeholder="qweqwe" [formControl]="deneme">
 <input type="text" [valueModifier]="[f1,f2]" placeholder="qweqwe" [formControl]="deneme2">
 
@@ -59,4 +80,5 @@
     </mat-form-field>
     <button mat-raised-button laravelSubmit>Kayıt Ol</button>
 </app-laravel-form>
+
 

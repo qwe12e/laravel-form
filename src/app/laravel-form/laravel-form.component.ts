@@ -14,6 +14,7 @@ export class LaravelFormComponent implements OnInit {
 
     @Input() set value(value) {
         if (this.formGroup) {
+            console.log('patching value', value);
             this.formGroup.patchValue(value);
         }
     }
